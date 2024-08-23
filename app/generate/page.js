@@ -125,11 +125,14 @@ export default function Generate (){
                 </Paper>
             </Box>
             {loading &&(
-                <Box sx = {{mt: 4}}>
-                    <Typography variant='h6' component='h2' gutterBottom>
-                        Loading...
-                    </Typography>
-                </Box>
+                <Dialog open={loading} onClose={() => setLoading(false)}>
+                    <DialogTitle>Loading...</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            Your flashcards are being generated. Please wait...
+                        </DialogContentText>
+                    </DialogContent>
+                </Dialog>
             )}
             {flashcards.length > 0 &&(
                 <Box sx = {{mt: 4}}  >
